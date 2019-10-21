@@ -9,13 +9,20 @@ void setup()
 }
 void draw()
 {
-  for (int y = 0; y < 700; y += 60) {
-    for (int x = 0; x < 700; x += 60) {
+  int sum = 0;
+  for (int y = 0; y < 700; y += 60){
+    for (int x = 0; x < 700; x += 60){
       Die ola = new Die(x, y);
       ola.roll();
       ola.show();
-    }
+      for(int r = 0; r < 1; r++){
+       sum += ola.numero; 
+      }
+    }   
   }
+  textSize(40);
+  text("Total " + sum, 250, 850);
+   
 }
 void mousePressed()
 {
@@ -24,7 +31,7 @@ void mousePressed()
 class Die //models one single dice cube
 {
   //variable declarations here
-  int myX, myY;
+  int myX, myY, numero;
   int [][] circle = {
     {0, 0, 0}, 
     {0, 0, 0}, 
@@ -39,7 +46,7 @@ class Die //models one single dice cube
 
   void roll()
   {
-    int numero = (int)(Math.random()* 6) + 1;
+    numero = (int)(Math.random()* 6) + 1;
     if (numero == 1) {
       uno();
     } else if (numero == 2) {
