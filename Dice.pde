@@ -15,9 +15,7 @@ void draw()
       Die ola = new Die(x, y);
       ola.roll();
       ola.show();
-      for(int r = 0; r < 1; r++){
-       sum += ola.numero; 
-      }
+      sum += ola.numero; 
     }   
   }
   textSize(40);
