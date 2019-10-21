@@ -9,18 +9,19 @@ void setup()
 }
 void draw()
 {
+  background(255, 255, 255);
   int sum = 0;
   for (int y = 0; y < 700; y += 60){
     for (int x = 0; x < 700; x += 60){
       Die ola = new Die(x, y);
       ola.roll();
-      ola.show();
       sum += ola.numero; 
+      ola.show();
     }   
   }
+  fill(0);
   textSize(40);
   text("Total " + sum, 250, 850);
-   
 }
 void mousePressed()
 {
